@@ -7,32 +7,32 @@ const areas = [
   {
     number: "01",
     title: "Business analysis",
-    intro: "Understand the problem before committing to the solution.",
-    text: "I help clarify business needs, user needs, processes, constraints and priorities. The result is a shared view of what matters, what needs to change and what a useful solution must do.",
+    intro: "Work out what the project really needs.",
+    text: "I speak to the people involved, look at the current process and separate needs from assumptions. We end up with clear requirements and a sensible basis for decisions.",
   },
   {
     number: "02",
     title: "Digital project management",
-    intro: "Turn direction into coordinated, realistic delivery.",
-    text: "I bring structure to digital work: shaping scope, organising decisions, coordinating contributors, watching risks and keeping progress visible. I can support a project from its first brief through delivery and handover.",
+    intro: "Keep the work organised from brief to handover.",
+    text: "I plan the work, keep decisions and risks visible, coordinate the people involved and follow up on what has been agreed. I can manage the whole project or step in at a particular stage.",
   },
   {
     number: "03",
     title: "Website project management",
-    intro: "Manage the whole website journey, not only the build.",
-    text: "A website project connects strategy, content, design, technology and organisational decisions. I help define the brief, choose a practical approach, coordinate the work, review quality and guide the project towards launch.",
+    intro: "Handle the website as a project, not just a build.",
+    text: "Website projects involve content, design, technology and decisions from several people. I can write the brief, help choose the right approach, coordinate the work and check it carefully before launch.",
   },
 ];
 
 const supporting = [
-  ["Digital strategy", "A focused plan connecting digital activity to clear business priorities."],
-  ["UX and content structure", "Clear journeys and information shaped around the people who use the website."],
-  ["Web design and CMS delivery", "Responsive websites and manageable systems including Squarespace, Wix, Webflow, Framer, Odoo, Shopify and WordPress."],
-  ["Digital marketing", "Paid search, social campaigns and email marketing aligned with wider goals."],
-  ["SEO", "Practical improvements to content, structure and search visibility."],
-  ["AI and prompt support", "Useful ways to apply AI to research, analysis, content and repeatable workflows."],
-  ["Consultation", "An experienced outside perspective when you need to untangle a problem or decide what to do next."],
-  ["Social recruiting", "Targeted social-media recruitment support for reaching relevant candidates."],
+  ["Digital strategy", "Decide which digital work matters now, what can wait and why."],
+  ["UX and content structure", "Arrange pages and content around what visitors are trying to find or do."],
+  ["Web design and CMS delivery", "Responsive websites built in Squarespace, Wix, Webflow, Framer, Odoo, Shopify or WordPress."],
+  ["Digital marketing", "Plan and run paid search, social or email campaigns with a clear purpose."],
+  ["SEO", "Improve page content, site structure and the technical details that help search engines understand the website."],
+  ["AI and prompt support", "Use AI for research, analysis and repeatable tasks where it genuinely saves time."],
+  ["Consultation", "Bring me a problem or decision and I will help you work through it."],
+  ["Social recruiting", "Use targeted social campaigns to reach people who may suit a specific vacancy."],
 ];
 ---
 
@@ -42,8 +42,8 @@ const supporting = [
 >
   <PageIntro
     eyebrow="What I do"
-    title="Business analysis and project management for digital work."
-    intro="I can help at the point where a need is still unclear, when a project needs experienced coordination, or when practical digital work has to be delivered. The engagement can be focused or span the full journey."
+    title="Business analysis and project management for digital projects."
+    intro="I can help before a project has a proper brief, when the work needs organising or when a website needs to be planned and delivered. You can bring me in for one part of the job or ask me to manage it from start to finish."
   />
 
   <section class="section-space bg-mist">
@@ -65,8 +65,8 @@ const supporting = [
 
   <section class="section-space">
     <div class="page-shell">
-      <p class="eyebrow text-charcoal-soft">Supporting capabilities</p>
-      <h2 class="content-heading mt-6 max-w-[13ch]">Hands-on knowledge where the project needs it.</h2>
+      <p class="eyebrow text-charcoal-soft">Other areas I can cover</p>
+      <h2 class="content-heading mt-6 max-w-[13ch]">Other parts of the project I can cover.</h2>
       <div class="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
         {
           supporting.map(([title, text], index) => (
@@ -84,5 +84,5 @@ const supporting = [
     </div>
   </section>
 
-  <CallToAction title="Not sure what kind of support you need?" text="Start with the situation. I can help define the right scope from there." />
+  <CallToAction title="Not sure where to start?" text="Tell me what is happening and I can help you work out what kind of support would be useful." />
 </BaseLayout>
