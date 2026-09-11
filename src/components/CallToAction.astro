@@ -1,0 +1,26 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  text?: string;
+}
+
+const {
+  eyebrow = "Start a conversation",
+  title = "Have a digital project that needs clarity?",
+  text = "Tell me where things stand, what feels difficult and what you need to achieve.",
+} = Astro.props;
+---
+
+<section class="section-space">
+  <div class="page-shell text-center">
+    <p class="eyebrow text-charcoal-soft">{eyebrow}</p>
+    <h2 class="mx-auto mt-6 max-w-[14ch] text-[clamp(2.8rem,6vw,6rem)] font-semibold leading-[0.94] tracking-[-0.04em]">
+      {title}
+    </h2>
+    <p class="mx-auto mt-8 max-w-2xl text-[clamp(1.05rem,1.5vw,1.25rem)] leading-8 text-charcoal-soft">
+      {text}
+    </p>
+    <a class="button-dark mt-10" href="/contact/">Discuss your project</a>
+  </div>
+</section>

@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import { projects } from "../../data/projects";
+---
+
+<BaseLayout
+  title="Website Projects | Simon Spitz"
+  description="Selected website projects delivered for businesses and organisations using Squarespace and Odoo."
+>
+  <PageIntro
+    eyebrow="Selected work"
+    title="Digital projects made tangible."
+    intro="These projects show the website side of my work across businesses and organisations. Each one brought together structure, design, content, technology and practical delivery within a different context."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid gap-x-10 gap-y-16 sm:grid-cols-2">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <CallToAction title="Looking for someone to connect thinking and delivery?" />
+</BaseLayout>

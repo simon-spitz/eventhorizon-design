@@ -1,0 +1,88 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import CallToAction from "../../components/CallToAction.astro";
+
+const areas = [
+  {
+    number: "01",
+    title: "Business analysis",
+    intro: "Understand the problem before committing to the solution.",
+    text: "I help clarify business needs, user needs, processes, constraints and priorities. The result is a shared view of what matters, what needs to change and what a useful solution must do.",
+  },
+  {
+    number: "02",
+    title: "Digital project management",
+    intro: "Turn direction into coordinated, realistic delivery.",
+    text: "I bring structure to digital work: shaping scope, organising decisions, coordinating contributors, watching risks and keeping progress visible. I can support a project from its first brief through delivery and handover.",
+  },
+  {
+    number: "03",
+    title: "Website project management",
+    intro: "Manage the whole website journey, not only the build.",
+    text: "A website project connects strategy, content, design, technology and organisational decisions. I help define the brief, choose a practical approach, coordinate the work, review quality and guide the project towards launch.",
+  },
+];
+
+const supporting = [
+  ["Digital strategy", "A focused plan connecting digital activity to clear business priorities."],
+  ["UX and content structure", "Clear journeys and information shaped around the people who use the website."],
+  ["Web design and CMS delivery", "Responsive websites and manageable systems including Squarespace, Wix, Webflow, Framer, Odoo, Shopify and WordPress."],
+  ["Digital marketing", "Paid search, social campaigns and email marketing aligned with wider goals."],
+  ["SEO", "Practical improvements to content, structure and search visibility."],
+  ["AI and prompt support", "Useful ways to apply AI to research, analysis, content and repeatable workflows."],
+  ["Consultation", "An experienced outside perspective when you need to untangle a problem or decide what to do next."],
+  ["Social recruiting", "Targeted social-media recruitment support for reaching relevant candidates."],
+];
+---
+
+<BaseLayout
+  title="Business Analysis and Digital Project Management | Simon Spitz"
+  description="Business analysis, digital and website project management, UX, web design, SEO and digital support from Simon Spitz."
+>
+  <PageIntro
+    eyebrow="What I do"
+    title="Make the right digital work happen."
+    intro="I can help at the point where a need is still unclear, when a project needs experienced coordination, or when practical digital work has to be delivered. The engagement can be focused or span the full journey."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell space-y-20 lg:space-y-28">
+      {
+        areas.map((area) => (
+          <article class="grid gap-7 lg:grid-cols-[0.42fr_1.58fr] lg:gap-20">
+            <p class="eyebrow text-charcoal-soft">{area.number}</p>
+            <div>
+              <h2 class="content-heading max-w-[14ch]">{area.title}</h2>
+              <p class="mt-6 max-w-2xl text-xl font-bold leading-8">{area.intro}</p>
+              <p class="content-copy mt-6">{area.text}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell">
+      <p class="eyebrow text-charcoal-soft">Supporting capabilities</p>
+      <h2 class="content-heading mt-6 max-w-[13ch]">Hands-on knowledge where the project needs it.</h2>
+      <div class="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          supporting.map(([title, text], index) => (
+            <article>
+              <p class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</p>
+              <h3 class="mt-4 text-2xl font-semibold">{title}</h3>
+              <p class="mt-4 leading-7 text-charcoal-soft">{text}</p>
+              {title === "Social recruiting" && (
+                <a class="text-link mt-5" href="/social-recruiting/">Learn more <span aria-hidden="true">→</span></a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CallToAction title="Not sure what kind of support you need?" text="Start with the situation. I can help define the right scope from there." />
+</BaseLayout>

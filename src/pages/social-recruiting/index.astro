@@ -1,0 +1,60 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import CallToAction from "../../components/CallToAction.astro";
+
+const benefits = [
+  {
+    title: "A more efficient route to candidates",
+    text: "Social campaigns can complement traditional job boards and agency routes, helping recruitment activity use time and budget more deliberately.",
+  },
+  {
+    title: "Access beyond active job seekers",
+    text: "Social platforms can reach people with relevant interests and backgrounds, including candidates who may not be actively searching job listings.",
+  },
+  {
+    title: "Focused advertising",
+    text: "Location, demographic and interest targeting can help place job opportunities in front of a more relevant audience.",
+  },
+];
+---
+
+<BaseLayout
+  title="Social Recruiting Support | Simon Spitz"
+  description="Practical social recruiting support using targeted campaigns to help businesses reach relevant candidates."
+>
+  <PageIntro
+    eyebrow="Specialist capability"
+    title="A focused social approach to recruitment."
+    intro="I help businesses use social media to reach, engage and attract potential candidates. The approach combines a clear recruitment need with targeted digital campaign thinking."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell">
+      <p class="eyebrow text-charcoal-soft">Why social recruiting?</p>
+      <div class="mt-12 grid gap-14 lg:grid-cols-3 lg:gap-16">
+        {
+          benefits.map((benefit, index) => (
+            <article>
+              <p class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight">{benefit.title}</h2>
+              <p class="mt-5 leading-8 text-charcoal-soft">{benefit.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+      <p class="eyebrow text-charcoal-soft">Who it can support</p>
+      <div>
+        <h2 class="content-heading max-w-[14ch]">Built around your actual hiring need.</h2>
+        <p class="content-copy mt-8">The scope can be shaped for a small business, a growing organisation or an established enterprise. We start with the role, location, audience and available recruitment routes, then decide whether social recruiting is a sensible part of the mix.</p>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction title="Want to explore social recruiting?" text="Tell me about the role and the candidates you need to reach." />
+</BaseLayout>

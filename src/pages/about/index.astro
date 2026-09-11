@@ -1,0 +1,74 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import simonPortrait from "../../assets/images/simon-about.webp";
+---
+
+<BaseLayout
+  title="About Simon Spitz | Independent Digital Specialist"
+  description="Meet Simon Spitz, an independent business analyst, digital project manager and website specialist with more than 20 years of experience."
+>
+  <PageIntro
+    eyebrow="About"
+    title="One person, a broad view."
+    intro="I’m Simon Spitz. I help organisations understand digital problems, organise the work around them and deliver practical solutions. Event Horizon Design is the name I work under—not a layer between you and the person doing the work."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid items-center gap-12 md:grid-cols-[0.8fr_1.2fr] md:gap-16 lg:gap-24">
+      <Image
+        src={simonPortrait}
+        alt="Simon Spitz"
+        widths={[420, 640, 900]}
+        sizes="(max-width: 767px) calc(100vw - 2rem), 38vw"
+        layout="constrained"
+        quality={86}
+        class="aspect-[4/5] w-full rounded-[2rem] object-cover shadow-soft"
+      />
+      <div>
+        <p class="eyebrow text-charcoal-soft">My path</p>
+        <h2 class="content-heading mt-6">From development to the whole project.</h2>
+        <div class="content-copy mt-8 space-y-6">
+          <p>I began as a web developer, building websites and developing the technical understanding that still grounds my work today.</p>
+          <p>My career then moved into project management, where I led complex web development projects and learned how much successful delivery depends on clear requirements, sound decisions and good communication—not technology alone.</p>
+          <p>Digital marketing and SEO added another perspective: a website has to support wider organisational goals and make sense to the people it is intended for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell grid gap-14 lg:grid-cols-3 lg:gap-16">
+      <article>
+        <p class="eyebrow text-charcoal-soft">01 · Understand</p>
+        <h2 class="mt-5 text-3xl font-semibold">Find the real question.</h2>
+        <p class="mt-5 leading-8 text-charcoal-soft">I listen, examine the current situation and make assumptions, needs and constraints visible before rushing towards an answer.</p>
+      </article>
+      <article>
+        <p class="eyebrow text-charcoal-soft">02 · Organise</p>
+        <h2 class="mt-5 text-3xl font-semibold">Create a workable path.</h2>
+        <p class="mt-5 leading-8 text-charcoal-soft">I translate complexity into priorities, decisions and manageable steps that people can understand and act on.</p>
+      </article>
+      <article>
+        <p class="eyebrow text-charcoal-soft">03 · Deliver</p>
+        <h2 class="mt-5 text-3xl font-semibold">Stay with the outcome.</h2>
+        <p class="mt-5 leading-8 text-charcoal-soft">I can coordinate the project, contribute hands-on digital knowledge and bring in trusted specialists where their expertise is needed.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-24">
+      <p class="eyebrow text-charcoal-soft">How I work</p>
+      <div>
+        <blockquote class="content-heading">Clear, collaborative and free from unnecessary jargon.</blockquote>
+        <p class="content-copy mt-8">You work directly with me. I aim to make the situation easier to understand, keep communication straightforward and recommend an approach that fits the actual need rather than forcing every project into the same service package.</p>
+        <a class="text-link mt-8" href="/trusted-partners/">Meet my trusted partners <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <CallToAction title="Could I help move your project forward?" />
+</BaseLayout>

@@ -1,0 +1,90 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import simonPortrait from "../../assets/images/home/simon-spitz.webp";
+---
+
+<BaseLayout
+  title="Contact Simon Spitz | Event Horizon Design"
+  description="Contact Simon Spitz to discuss business analysis, digital project management, website work or digital support."
+>
+  <PageIntro
+    eyebrow="Contact"
+    title="Start with the situation."
+    intro="You do not need to arrive with a finished brief. Tell me what is happening, what needs to change and where you would value support."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+      <aside>
+        <Image
+          src={simonPortrait}
+          alt="Simon Spitz"
+          width={220}
+          height={220}
+          class="aspect-square w-40 rounded-full object-cover shadow-soft sm:w-52"
+        />
+        <h2 class="mt-8 text-3xl font-semibold">Simon Spitz</h2>
+        <p class="mt-3 max-w-sm leading-7 text-charcoal-soft">Independent business analyst, digital project manager and website specialist.</p>
+        <a class="mt-7 inline-block text-xl font-bold transition-opacity hover:opacity-55" href="tel:+447563165406">+44 (0)7563 165406</a>
+      </aside>
+
+      <div>
+        <h2 class="content-heading max-w-[13ch]">Tell me about your project.</h2>
+        <p class="content-copy mt-7">I can respond by email or arrange a conversation by phone or video call. If there is a clear fit, I can then prepare a complimentary, non-binding proposal.</p>
+
+        <form
+          name="contact"
+          method="POST"
+          action="/thank-you/"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          class="mt-12 space-y-9"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden">
+            <label>Leave this empty: <input name="bot-field" /></label>
+          </p>
+
+          <div class="grid gap-9 sm:grid-cols-2">
+            <label>
+              <span class="field-label">Name</span>
+              <input class="field-input" type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              <span class="field-label">Email</span>
+              <input class="field-input" type="email" name="email" autocomplete="email" required />
+            </label>
+          </div>
+
+          <label class="block">
+            <span class="field-label">Organisation <span class="normal-case tracking-normal text-charcoal-soft">(optional)</span></span>
+            <input class="field-input" type="text" name="organisation" autocomplete="organization" />
+          </label>
+
+          <label class="block">
+            <span class="field-label">What would you like help with?</span>
+            <select class="field-input" name="area">
+              <option value="">Choose an area</option>
+              <option>Business analysis</option>
+              <option>Digital project management</option>
+              <option>Website project management</option>
+              <option>Website design or delivery</option>
+              <option>Digital marketing or SEO</option>
+              <option>Social recruiting</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+
+          <label class="block">
+            <span class="field-label">Your message</span>
+            <textarea class="field-input min-h-40 resize-y" name="message" required></textarea>
+          </label>
+
+          <button class="button-dark" type="submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

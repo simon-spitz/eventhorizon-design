@@ -1,0 +1,64 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+---
+
+<BaseLayout
+  title="Site Notice | Event Horizon Design"
+  description="Company information, content responsibility, disclaimer and copyright notice for Event Horizon Design."
+>
+  <PageIntro
+    eyebrow="Legal"
+    title="Site notice."
+    intro="Company information and notices for Event Horizon Design."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid gap-16 lg:grid-cols-[0.45fr_1.55fr] lg:gap-24">
+      <nav aria-label="On this page" class="lg:sticky lg:top-40 lg:self-start">
+        <p class="eyebrow text-charcoal-soft">On this page</p>
+        <ul class="mt-5 space-y-3">
+          <li><a class="text-link" href="#company">Company information</a></li>
+          <li><a class="text-link" href="#content">Responsible for content</a></li>
+          <li><a class="text-link" href="#disclaimer">Disclaimer</a></li>
+          <li><a class="text-link" href="#copyright">Copyright</a></li>
+          <li><a class="text-link" href="#external-links">External links</a></li>
+        </ul>
+      </nav>
+
+      <div class="space-y-16">
+        <section id="company" class="scroll-mt-36">
+          <h2 class="content-heading">Company information</h2>
+          <address class="content-copy mt-7 not-italic">
+            Event Horizon Design — Simon Spitz<br />
+            631 Woodside, The Park<br />
+            Findhorn<br />
+            Forres IV36 3AF<br />
+            United Kingdom
+          </address>
+          <p class="content-copy mt-5">Telephone: <a class="text-link" href="tel:+447563165406">+44 (0)7563 165406</a><br />Email: please use the <a class="text-link" href="/contact/">contact form</a>.</p>
+        </section>
+
+        <section id="content" class="scroll-mt-36">
+          <h2 class="content-heading">Responsible for content</h2>
+          <p class="content-copy mt-7">Simon Spitz<br />Address as above.</p>
+        </section>
+
+        <section id="disclaimer" class="scroll-mt-36">
+          <h2 class="content-heading">Disclaimer</h2>
+          <p class="content-copy mt-7">The information contained in this website is for general information purposes only. The information is provided by Event Horizon Design and while we endeavour to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the website or the information, products, services or related graphics contained on the website for any purpose. Any reliance you place on such information is therefore strictly at your own risk.</p>
+        </section>
+
+        <section id="copyright" class="scroll-mt-36">
+          <h2 class="content-heading">Copyright notice</h2>
+          <p class="content-copy mt-7">Copyright © {new Date().getFullYear()} Event Horizon Design. All rights reserved. All content and images on this site are owned or licensed by Event Horizon Design unless otherwise stated. No part of this site may be reproduced without our written permission.</p>
+        </section>
+
+        <section id="external-links" class="scroll-mt-36">
+          <h2 class="content-heading">External links</h2>
+          <p class="content-copy mt-7">This website may include links to external websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website or websites. Event Horizon Design has no responsibility for the content of linked websites.</p>
+        </section>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

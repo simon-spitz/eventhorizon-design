@@ -2,6 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import "../styles/pages.css";
 
 interface Props {
   title: string;
@@ -20,8 +21,7 @@ const canonical = new URL(Astro.url.pathname, "https://www.eventhorizon-design.c
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/webp" href="/favicon.webp" />
     <link rel="canonical" href={canonical} />
     <title>{title}</title>
   </head>

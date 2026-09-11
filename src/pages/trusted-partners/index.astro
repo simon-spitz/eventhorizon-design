@@ -1,0 +1,79 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+import CallToAction from "../../components/CallToAction.astro";
+import flyingMirrors from "../../assets/images/partners/flying-mirrors.webp";
+import avalon from "../../assets/images/partners/avalon.webp";
+import clearintech from "../../assets/images/partners/clearintech.webp";
+import schwarzdesign from "../../assets/images/partners/schwarzdesign.webp";
+
+const partners = [
+  {
+    name: "Flying Mirrors",
+    description: "Videography and photography in Moray and the Highlands.",
+    url: "https://www.flyingmirrors.co.uk/",
+    image: flyingMirrors,
+  },
+  {
+    name: "Avalon Santos Willmott",
+    description: "Communications, branding and graphic design.",
+    url: "https://avalonswillmott.com/",
+    image: avalon,
+  },
+  {
+    name: "CLEARINTECH",
+    description: "IT products and services.",
+    url: "https://www.clearintech.com/",
+    image: clearintech,
+  },
+  {
+    name: "schwarzdesign",
+    description: "Agency for the digital future.",
+    url: "https://www.schwarzdesign.de/",
+    image: schwarzdesign,
+  },
+];
+---
+
+<BaseLayout
+  title="Trusted Partners | Event Horizon Design"
+  description="Trusted photography, communications, branding, IT and digital specialists who can support wider project needs."
+>
+  <PageIntro
+    eyebrow="Trusted partners"
+    title="Independent does not mean isolated."
+    intro="You work directly with me. When a project needs specialist expertise beyond my own, I can collaborate with trusted professionals whose work I know and value."
+  />
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid gap-x-12 gap-y-14 sm:grid-cols-2">
+      {
+        partners.map((partner) => (
+          <a href={partner.url} rel="noopener" class="group block rounded-[1.5rem] bg-white p-8 shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lifted sm:p-10">
+            <div class="flex min-h-40 items-center justify-center">
+              <Image
+                src={partner.image}
+                alt={`${partner.name} logo`}
+                width={420}
+                class="partner-logo max-h-28 w-auto max-w-full object-contain"
+              />
+            </div>
+            <h2 class="mt-8 flex items-center justify-between gap-5 text-3xl font-semibold">
+              {partner.name}<span aria-hidden="true" class="transition-transform group-hover:translate-x-1">↗</span>
+            </h2>
+            <p class="mt-4 leading-7 text-charcoal-soft">{partner.description}</p>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <CallToAction title="Need a joined-up project team?" text="I can help shape the work and bring the right combination of people around it." />
+</BaseLayout>
+
+<style>
+  .partner-logo {
+    filter: grayscale(1) saturate(0);
+  }
+</style>

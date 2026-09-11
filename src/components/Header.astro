@@ -4,43 +4,53 @@ import logo from "../assets/images/logo.webp";
 
 const navigation = [
   { label: "Home", href: "/" },
-  { label: "My Services", href: "/digital-solutions/" },
+  { label: "What I do", href: "/digital-solutions/" },
+  { label: "Work", href: "/portfolio/" },
   { label: "About", href: "/about/" },
-  { label: "Portfolio", href: "/portfolio/" },
   { label: "Contact", href: "/contact/" },
 ];
 
 const currentPath = Astro.url.pathname;
+const isCurrent = (href: string) =>
+  href === "/" ? currentPath === href : currentPath.startsWith(href);
 ---
 
 <header
-  class="sticky top-0 z-50 bg-white/94 shadow-[0_14px_42px_-34px_rgba(41,42,40,0.65)] backdrop-blur-md"
+  class="sticky top-0 z-50 bg-white/94 shadow-[0_18px_48px_-44px_rgba(41,42,40,0.7)] backdrop-blur-md"
 >
-  <div class="page-shell flex min-h-20 items-center justify-between gap-6 py-3 lg:min-h-24">
-    <a href="/" class="shrink-0" aria-label="Event Horizon Design home">
+  <div
+    class="page-shell flex min-h-24 items-center justify-between py-3 lg:grid lg:min-h-28 lg:grid-cols-[1fr_auto_1fr] lg:py-2"
+  >
+    <a
+      href="/"
+      class="shrink-0 justify-self-start transition-opacity hover:opacity-60"
+      aria-label="Event Horizon Design home"
+    >
       <Image
         src={logo}
         alt="Event Horizon Design"
-        width={64}
-        height={64}
+        width={96}
+        height={96}
         loading="eager"
-        class="brand-logo h-14 w-14 object-contain lg:h-16 lg:w-16"
+        class="brand-logo h-20 w-20 object-contain lg:h-24 lg:w-24"
       />
     </a>
 
-    <nav aria-label="Primary navigation" class="hidden items-center gap-7 lg:flex xl:gap-10">
+    <nav aria-label="Primary navigation" class="hidden items-center gap-10 lg:flex xl:gap-14">
       {
         navigation.map((item) => (
           <a
             href={item.href}
-            aria-current={currentPath === item.href ? "page" : undefined}
-            class="nav-link relative py-2 text-[0.92rem] font-bold tracking-[0.015em] text-charcoal transition-opacity hover:opacity-55"
+            aria-current={isCurrent(item.href) ? "page" : undefined}
+            class="nav-link relative py-3 text-[0.8rem] font-bold uppercase tracking-[0.15em] text-charcoal transition-opacity hover:opacity-50"
           >
             {item.label}
           </a>
         ))
       }
     </nav>
+
+    <div aria-hidden="true" class="hidden lg:block"></div>
 
     <details class="mobile-menu relative lg:hidden">
       <summary
@@ -57,7 +67,7 @@ const currentPath = Astro.url.pathname;
           navigation.map((item) => (
             <a
               href={item.href}
-              aria-current={currentPath === item.href ? "page" : undefined}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
               class="rounded-xl px-4 py-3 text-lg font-bold transition-colors hover:bg-mist"
             >
               {item.label}
@@ -74,14 +84,21 @@ const currentPath = Astro.url.pathname;
     filter: grayscale(1) saturate(0) brightness(0.2);
   }
 
-  .nav-link[aria-current="page"]::after {
+  .nav-link::after {
     position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 1px;
+    bottom: 0.15rem;
+    left: 50%;
+    width: 0.25rem;
+    height: 0.25rem;
     content: "";
     background: currentColor;
+    border-radius: 999px;
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+
+  .nav-link[aria-current="page"]::after {
+    opacity: 1;
   }
 
   .menu-icon {
