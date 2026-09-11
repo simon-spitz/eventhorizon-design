@@ -23,7 +23,7 @@ const isCurrent = (href: string) =>
   >
     <a
       href="/"
-      class="shrink-0 justify-self-start transition-opacity hover:opacity-60"
+      class="flex shrink-0 items-center gap-4 justify-self-start transition-opacity hover:opacity-60"
       aria-label="Event Horizon Design home"
     >
       <Image
@@ -34,6 +34,9 @@ const isCurrent = (href: string) =>
         loading="eager"
         class="brand-logo h-20 w-20 object-contain lg:h-24 lg:w-24"
       />
+      <span class="hidden font-display text-[1.05rem] font-semibold leading-[1.05] tracking-[-0.015em] text-charcoal xl:block">
+        Event Horizon<br />Design
+      </span>
     </a>
 
     <nav aria-label="Primary navigation" class="hidden items-center gap-10 lg:flex xl:gap-14">
