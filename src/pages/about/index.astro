@@ -4,15 +4,35 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageIntro from "../../components/PageIntro.astro";
 import CallToAction from "../../components/CallToAction.astro";
 import simonPortrait from "../../assets/images/simon-about.webp";
+
+const siteUrl = "https://www.eventhorizon-design.com/";
+const profileStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${siteUrl}about/#profile-page`,
+  url: `${siteUrl}about/`,
+  name: "About Simon Spitz",
+  inLanguage: "en-GB",
+  mainEntity: {
+    "@type": "Person",
+    "@id": `${siteUrl}#simon-spitz`,
+    name: "Simon Spitz",
+    url: `${siteUrl}about/`,
+    jobTitle: "Freelance business analyst and digital project manager",
+    description: "Business analyst and digital project manager specialising in website projects, with more than 20 years of digital experience.",
+    sameAs: ["https://www.linkedin.com/in/simon-spitz"],
+  },
+};
 ---
 
 <BaseLayout
-  title="About Simon Spitz | Independent Digital Specialist"
-  description="Meet Simon Spitz, an independent business analyst, digital project manager and website specialist with more than 20 years of experience."
+  title="About Simon Spitz | Freelance Digital Project Manager"
+  description="About Simon Spitz, a freelance business analyst and digital project manager with more than 20 years of experience across websites, marketing and delivery."
+  structuredData={profileStructuredData}
 >
   <PageIntro
     eyebrow="About"
-    title="One person, a broad view."
+    title="I’m Simon Spitz."
     intro="I’m Simon Spitz. I help organisations understand digital problems, organise the work around them and deliver practical solutions. Event Horizon Design is the name I work under—not a layer between you and the person doing the work."
   />
 

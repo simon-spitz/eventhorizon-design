@@ -1,0 +1,23 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Page Not Found | Event Horizon Design"
+  description="The page you were looking for could not be found."
+  robots="noindex, follow"
+>
+  <section class="page-shell flex min-h-[65svh] flex-col items-start justify-center py-20">
+    <p class="eyebrow text-charcoal-soft">404 · Page not found</p>
+    <h1 class="mt-6 max-w-[12ch] text-[clamp(3.2rem,7vw,7rem)] font-semibold leading-[0.9] tracking-[-0.045em]">
+      This page is not here.
+    </h1>
+    <p class="content-copy mt-8">
+      The address may have changed, or the page may no longer exist. You can return home or look through my selected work.
+    </p>
+    <div class="mt-9 flex flex-wrap gap-6">
+      <a class="button-dark" href="/">Return home</a>
+      <a class="text-link" href="/portfolio/">View selected work <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</BaseLayout>

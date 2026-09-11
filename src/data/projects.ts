@@ -37,6 +37,7 @@ export interface Project {
   kind: string;
   cms: string;
   url?: string;
+  summary: string;
   cover: ImageMetadata;
   desktop: ImageMetadata;
   phones: ImageMetadata[];
@@ -51,6 +52,7 @@ export const projects: Project[] = [
     kind: "Business website",
     cms: "Squarespace",
     url: "https://www.transitionexpertise.com/",
+    summary: "A responsive Squarespace business website for Transition Expertise, presented across desktop and mobile layouts.",
     cover: transitionCover,
     desktop: transitionDesktop,
     phones: [transitionPhone1, transitionPhone2, transitionPhone3],
@@ -63,6 +65,7 @@ export const projects: Project[] = [
     kind: "Organisation website",
     cms: "Squarespace",
     url: "https://www.tha-ltd.org/",
+    summary: "A responsive Squarespace organisation website for THA Park Ecovillage Findhorn Ltd, shown across desktop and mobile layouts.",
     cover: thaCover,
     desktop: thaDesktop,
     phones: [thaPhone1, thaPhone2, thaPhone3],
@@ -74,6 +77,7 @@ export const projects: Project[] = [
     shortTitle: "102 Agency",
     kind: "Corporate website",
     cms: "Odoo",
+    summary: "A corporate website for 102 Agency, delivered in Odoo and designed to work across desktop and mobile layouts.",
     cover: agencyCover,
     desktop: agencyDesktop,
     phones: [agencyPhone1, agencyPhone2, agencyPhone3],
@@ -86,6 +90,7 @@ export const projects: Project[] = [
     kind: "Business website",
     cms: "Squarespace",
     url: "https://www.rem-dv.co.uk/",
+    summary: "A responsive Squarespace business website for REM Core Drilling, with layouts tailored to desktop and mobile screens.",
     cover: remCover,
     desktop: remDesktop,
     phones: [remPhone1, remPhone2, remPhone3],
@@ -97,6 +102,7 @@ export const projects: Project[] = [
     shortTitle: "Synchronicity",
     kind: "Corporate website",
     cms: "Odoo",
+    summary: "A corporate website for Synchronicity, delivered in Odoo and presented across desktop and mobile layouts.",
     cover: synchronicityCover,
     desktop: synchronicityDesktop,
     phones: [synchronicityPhone1, synchronicityPhone2, synchronicityPhone3],
@@ -109,6 +115,7 @@ export const projects: Project[] = [
     kind: "Portfolio website",
     cms: "Squarespace",
     url: "https://www.eventhorizon-design.com/",
+    summary: "The previous Event Horizon Design portfolio website, built in Squarespace and adapted across desktop and mobile layouts.",
     cover: eventHorizonCover,
     desktop: eventHorizonDesktop,
     phones: [eventHorizonPhone1, eventHorizonPhone2, eventHorizonPhone3],

@@ -18,11 +18,66 @@ interface Props {
 const { project } = Astro.props;
 const currentIndex = projects.findIndex((item) => item.slug === project.slug);
 const nextProject = projects[(currentIndex + 1) % projects.length];
+const site = Astro.site ?? new URL("https://www.eventhorizon-design.com");
+const pageUrl = new URL(Astro.url.pathname, site).href;
+const imageUrl = new URL(project.desktop.src, site).href;
+const projectStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: `${project.shortTitle} website project`,
+      description: project.summary,
+      inLanguage: "en-GB",
+      isPartOf: { "@id": "https://www.eventhorizon-design.com/#website" },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: imageUrl,
+      },
+      mainEntity: { "@id": `${pageUrl}#project` },
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": `${pageUrl}#project`,
+      name: project.title,
+      description: project.summary,
+      image: imageUrl,
+      creator: { "@id": "https://www.eventhorizon-design.com/#simon-spitz" },
+      ...(project.url ? { sameAs: project.url } : {}),
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://www.eventhorizon-design.com/",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Work",
+          item: "https://www.eventhorizon-design.com/portfolio/",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: project.shortTitle,
+          item: pageUrl,
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${project.shortTitle} Project | Simon Spitz`}
-  description={`${project.kind} project for ${project.shortTitle}, delivered using ${project.cms}.`}
+  title={`${project.shortTitle} Website Project | Simon Spitz`}
+  description={`${project.summary} Selected website work by Simon Spitz.`}
+  structuredData={projectStructuredData}
 >
   <section class="page-shell pb-16 pt-16 sm:pb-24 sm:pt-24 lg:pb-28 lg:pt-28">
     <a class="text-link" href="/portfolio/"><span aria-hidden="true">←</span> All work</a>
@@ -42,6 +97,7 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
         )
       }
     </div>
+    <p class="content-copy mt-10">{project.summary}</p>
   </section>
 
   <section class="section-space bg-mist">
@@ -51,7 +107,7 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
         formats={["avif", "webp"]}
         widths={[640, 960, 1280, 1600]}
         sizes="(max-width: 1023px) calc(100vw - 2rem), min(86rem, calc(100vw - 5rem))"
-        alt={`${project.shortTitle} desktop website preview`}
+        alt={`Desktop view of the ${project.shortTitle} website`}
         quality={86}
         class="h-auto w-full rounded-[2rem] shadow-lifted"
       />
@@ -64,7 +120,7 @@ const nextProject = projects[(currentIndex + 1) % projects.length];
               formats={["avif", "webp"]}
               widths={[280, 420, 600]}
               sizes="(max-width: 639px) min(76vw, 28rem), 28vw"
-              alt={`${project.shortTitle} mobile website preview ${index + 1}`}
+              alt={`Mobile view ${index + 1} of the ${project.shortTitle} website`}
               quality={84}
               class="mx-auto h-auto w-full max-w-md rounded-[1.5rem] shadow-soft"
             />

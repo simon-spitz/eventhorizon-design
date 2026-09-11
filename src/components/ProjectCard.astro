@@ -15,7 +15,7 @@ const { project } = Astro.props;
     formats={["avif", "webp"]}
     widths={[400, 600, 800, 960]}
     sizes="(max-width: 639px) calc(100vw - 2rem), (max-width: 1023px) calc(50vw - 2.5rem), 42rem"
-    alt={`${project.shortTitle} website preview`}
+    alt={project.alt}
     quality={84}
     class="aspect-[16/10] w-full rounded-[1.5rem] object-cover shadow-soft transition duration-300 group-hover:-translate-y-1 group-hover:shadow-lifted"
   />

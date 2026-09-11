@@ -3,27 +3,47 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import "../styles/pages.css";
+import bodyFont from "../assets/fonts/nunito-sans-400.woff2?url";
+import displayFont from "../assets/fonts/signika-negative-600.woff2?url";
 
 interface Props {
   title: string;
   description: string;
+  robots?: string;
+  structuredData?: Record<string, unknown>;
 }
 
-const { title, description } = Astro.props;
-const canonical = new URL(Astro.url.pathname, "https://www.eventhorizon-design.com");
+const {
+  title,
+  description,
+  robots = "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  structuredData,
+} = Astro.props;
+const site = Astro.site ?? new URL("https://www.eventhorizon-design.com");
+const canonical = new URL(Astro.url.pathname, site);
+const jsonLd = structuredData ? JSON.stringify(structuredData).replace(/</g, "\\u003c") : null;
 ---
 
 <!doctype html>
 <html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="author" content="Simon Spitz" />
+    <meta name="robots" content={robots} />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="color-scheme" content="light" />
+    <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={displayFont} as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/webp" href="/favicon.webp" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="canonical" href={canonical} />
     <title>{title}</title>
+    {jsonLd && <script type="application/ld+json" set:html={jsonLd} />}
   </head>
   <body class="font-sans text-charcoal">
     <a
