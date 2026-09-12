@@ -1,44 +1,202 @@
 ---
+import { Picture } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PageIntro from "../../components/PageIntro.astro";
-import CallToAction from "../../components/CallToAction.astro";
+
+import teamImage from "../../assets/images/social-recruiting/team-discussion.jpg";
+import planningImage from "../../assets/images/social-recruiting/campaign-planning.jpg";
+import socialImage from "../../assets/images/social-recruiting/social-advertising.jpg";
+
+const problems = [
+  {
+    title: "The vacancy is reaching the same small audience",
+    text: "Job boards mainly reach people who are already looking. That leaves a much larger group of potentially suitable candidates unseen.",
+  },
+  {
+    title: "Applications arrive, but the fit is poor",
+    text: "More applications do not automatically mean better candidates. A campaign needs a clear role profile and a carefully chosen audience.",
+  },
+  {
+    title: "Recruitment is taking too much time and budget",
+    text: "Repeated job listings and agency fees can add up. Social recruiting gives you another route that can be tested and adjusted while it is running.",
+  },
+];
 
 const benefits = [
   {
-    title: "Use the budget more carefully",
-    text: "A focused social campaign can sit alongside job boards or recruitment agencies and give you another way to reach people.",
+    title: "Reach people who are not actively job hunting",
+    text: "A strong candidate may be open to the right opportunity without visiting recruitment websites. Social advertising can put your role in front of them where they already spend time.",
   },
   {
-    title: "Reach people who are not job hunting",
-    text: "A suitable candidate may not be looking at job listings. Social advertising can still put the vacancy in front of them.",
+    title: "Focus the campaign on a relevant audience",
+    text: "Depending on the platform and role, campaigns can be shaped around location, interests and other appropriate audience signals instead of being shown indiscriminately.",
   },
   {
-    title: "Show the vacancy to a more specific audience",
-    text: "Campaigns can be narrowed by location, interests and other relevant criteria rather than shown to everyone.",
+    title: "Reach a broader and more varied talent pool",
+    text: "Social platforms provide access to large, diverse audiences. This can help you look beyond the candidates reached through your usual recruitment channels.",
+  },
+  {
+    title: "Keep control of the campaign budget",
+    text: "We agree the audience, campaign length and budget before launch. Performance can then be reviewed and the campaign adjusted rather than simply left to run.",
   },
 ];
+
+const process = [
+  {
+    title: "Understand the vacancy",
+    text: "We start with the role, location, requirements and the reasons someone would want to work with you. If social recruiting is not a sensible fit, we will say so.",
+  },
+  {
+    title: "Define the people to reach",
+    text: "We turn the job description into a practical candidate profile and identify the audiences and social platforms most likely to be useful.",
+  },
+  {
+    title: "Build the campaign",
+    text: "We develop the campaign message, advertising creative and targeting. We also agree where interested people should go and how applications or enquiries will be handled.",
+  },
+  {
+    title: "Launch and monitor",
+    text: "Once approved, the campaign goes live. We watch how it performs and adjust targeting, creative or spend when the results point us in that direction.",
+  },
+  {
+    title: "Review what happened",
+    text: "We report on the campaign and what it produced, so you can judge the response and decide what should happen next.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Does social recruiting replace job boards or recruitment agencies?",
+    answer: "Not necessarily. It can work as a separate route or alongside the recruitment methods you already use. The right mix depends on the vacancy and the audience.",
+  },
+  {
+    question: "Which social platforms do you use?",
+    answer: "That depends on the role and the people you need to reach. We recommend platforms after looking at the vacancy rather than choosing one in advance.",
+  },
+  {
+    question: "Is it suitable for every vacancy?",
+    answer: "No. Location, role type, available audience, budget and the strength of the offer all matter. We assess those points before recommending a campaign.",
+  },
+  {
+    question: "Can you guarantee that we will hire someone?",
+    answer: "No responsible campaign can guarantee a hire. We can build a focused campaign, reach a relevant audience and improve it using response data, but the final outcome also depends on the role, offer and recruitment process.",
+  },
+];
+
+const siteRoot = "https://www.eventhorizon-design.com/";
+const pageUrl = `${siteRoot}social-recruiting/`;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: "Social recruiting campaigns for employers",
+      serviceType: "Social recruiting",
+      url: pageUrl,
+      description:
+        "Focused social media recruitment campaigns that help employers reach potentially suitable candidates beyond traditional job boards.",
+      provider: {
+        "@type": "Organization",
+        "@id": `${siteRoot}#organisation`,
+        name: "Event Horizon Design",
+        url: siteRoot,
+      },
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Employers, hiring managers and HR teams",
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: faqs.map(({ question, answer }) => ({
+        "@type": "Question",
+        name: question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: answer,
+        },
+      })),
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${pageUrl}#breadcrumbs`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: siteRoot,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Social recruiting",
+          item: pageUrl,
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <BaseLayout
-  title="Social Recruiting Support for Employers | Simon Spitz"
-  description="Social recruiting support for employers, using focused digital campaigns to reach relevant candidates beyond traditional recruitment channels."
+  title="Social Recruiting Campaigns for Employers | Event Horizon Design"
+  description="Reach suitable candidates beyond job boards with focused social recruiting campaigns covering strategy, creative, targeting, monitoring and reporting."
+  structuredData={structuredData}
 >
-  <PageIntro
-    eyebrow="Specialist capability"
-    title="Social recruiting support for employers."
-    intro="I help businesses advertise vacancies through social media. We start with the role and the people you want to reach, then decide which platforms and campaign setup make sense."
-  />
+  <section class="page-shell grid items-center gap-12 py-14 sm:py-20 lg:min-h-[calc(100svh-7rem)] lg:grid-cols-[1.02fr_0.98fr] lg:gap-16 lg:py-24">
+    <div class="max-w-4xl">
+      <p class="eyebrow mb-7 text-charcoal-soft">Social recruiting</p>
+      <h1 class="max-w-[10ch] font-display text-[clamp(3.2rem,7.1vw,7.1rem)] font-semibold leading-[0.9] tracking-[-0.045em]">
+        Reach the people job ads miss.
+      </h1>
+      <p class="mt-8 max-w-[44rem] text-[clamp(1.1rem,1.7vw,1.42rem)] leading-[1.65] text-charcoal-soft">
+        When the right candidates are not looking at job boards, we use focused social media campaigns to put your vacancy in front of people who may be a good fit.
+      </p>
+      <div class="mt-10 flex flex-wrap items-center gap-6">
+        <a class="button-dark" href="/contact/">Tell us about the vacancy</a>
+        <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="mt-8 max-w-2xl text-sm leading-7 text-charcoal-soft">
+        For small businesses, growing companies and established organisations.
+      </p>
+    </div>
+
+    <div class="relative lg:justify-self-end">
+      <div class="absolute -inset-5 -z-10 rounded-[2.5rem] bg-mist sm:-inset-8"></div>
+      <Picture
+        src={teamImage}
+        formats={["avif", "webp"]}
+        widths={[480, 640, 768, 960, 1280]}
+        sizes="(max-width: 1023px) calc(100vw - 2rem), 44vw"
+        alt="Colleagues discussing work around desks in an open office"
+        priority
+        quality={82}
+        class="aspect-[4/5] w-full rounded-[2rem] object-cover object-center grayscale shadow-lifted sm:aspect-[5/4] lg:aspect-[4/5] lg:max-h-[44rem]"
+      />
+    </div>
+  </section>
 
   <section class="section-space bg-mist">
     <div class="page-shell">
-      <p class="eyebrow text-charcoal-soft">Why social recruiting?</p>
-      <div class="mt-12 grid gap-14 lg:grid-cols-3 lg:gap-16">
+      <div class="grid gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:gap-24">
+        <p class="eyebrow text-charcoal-soft">The problem</p>
+        <div class="max-w-4xl">
+          <h2 class="content-heading max-w-[15ch]">Good candidates are often not looking for you.</h2>
+          <p class="content-copy mt-8 max-w-3xl">
+            Traditional recruitment is good at reaching active job seekers. It is less effective when the people you want are busy working, are not checking job sites or have never heard of your organisation. Social recruiting helps you reach beyond that familiar pool.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-16 grid gap-12 lg:grid-cols-3 lg:gap-16">
         {
-          benefits.map((benefit, index) => (
+          problems.map((problem, index) => (
             <article>
               <p class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</p>
-              <h2 class="mt-5 text-3xl font-semibold leading-tight">{benefit.title}</h2>
-              <p class="mt-5 leading-8 text-charcoal-soft">{benefit.text}</p>
+              <h3 class="mt-5 text-3xl font-semibold leading-tight">{problem.title}</h3>
+              <p class="mt-5 leading-8 text-charcoal-soft">{problem.text}</p>
             </article>
           ))
         }
@@ -47,14 +205,124 @@ const benefits = [
   </section>
 
   <section class="section-space">
-    <div class="page-shell grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
-      <p class="eyebrow text-charcoal-soft">When it can help</p>
+    <div class="page-shell grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-24">
+      <Picture
+        src={socialImage}
+        formats={["avif", "webp"]}
+        widths={[480, 640, 800, 1000]}
+        sizes="(max-width: 1023px) calc(100vw - 2rem), 40vw"
+        alt="A smartphone displaying a social media page beside a laptop"
+        quality={82}
+        class="aspect-[4/3] w-full rounded-[2rem] object-cover grayscale shadow-soft"
+      />
       <div>
-        <h2 class="content-heading max-w-[14ch]">Start with the vacancy, not the advertising.</h2>
-        <p class="content-copy mt-8">Social recruiting can work for a small business or a larger organisation, but it is not the right answer for every vacancy. I look at the role, location, audience and other recruitment options before recommending it.</p>
+        <p class="eyebrow text-charcoal-soft">Why social recruiting?</p>
+        <h2 class="content-heading mt-6 max-w-[14ch]">A more direct way to find and interest potential candidates.</h2>
+        <p class="content-copy mt-8">
+          The aim is not to show your vacancy to everyone. It is to give the right people a reason to stop, pay attention and take the next step.
+        </p>
+      </div>
+    </div>
+
+    <div class="page-shell mt-20 grid gap-x-16 gap-y-14 md:grid-cols-2">
+      {
+        benefits.map((benefit, index) => (
+          <article class="grid grid-cols-[auto_1fr] gap-5">
+            <span class="font-display text-2xl font-semibold text-charcoal-soft">{String(index + 1).padStart(2, "0")}</span>
+            <div>
+              <h3 class="text-3xl font-semibold leading-tight">{benefit.title}</h3>
+              <p class="mt-4 leading-8 text-charcoal-soft">{benefit.text}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section-space scroll-mt-24 bg-mist">
+    <div class="page-shell grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+      <div class="lg:sticky lg:top-36 lg:self-start">
+        <p class="eyebrow text-charcoal-soft">How it works</p>
+        <h2 class="content-heading mt-6 max-w-[12ch]">From vacancy to a focused campaign.</h2>
+        <p class="content-copy mt-8 max-w-xl">
+          This is a specialist service I deliver with a business partner. You get the combined thinking of a small team and direct contact throughout the work.
+        </p>
+      </div>
+
+      <ol class="space-y-12">
+        {
+          process.map((step, index) => (
+            <li class="grid gap-5 sm:grid-cols-[4rem_1fr] sm:gap-8">
+              <span class="font-display text-2xl font-semibold text-charcoal-soft">{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 class="text-[clamp(1.8rem,3vw,2.8rem)] font-semibold leading-tight">{step.title}</h3>
+                <p class="mt-4 max-w-2xl text-lg leading-8 text-charcoal-soft">{step.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-space">
+    <div class="page-shell grid items-center gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:gap-24">
+      <div>
+        <p class="eyebrow text-charcoal-soft">A sensible fit</p>
+        <h2 class="content-heading mt-6 max-w-[15ch]">The vacancy still has to give people a reason to respond.</h2>
+        <div class="content-copy mt-8 space-y-5">
+          <p>
+            Social recruiting can widen your reach, but it cannot repair an unclear role, an unrealistic offer or a slow application process. We look at the whole route from advert to response before spending your campaign budget.
+          </p>
+          <p>
+            It can be particularly useful when a role is difficult to fill, local reach matters, active applicants are limited or you want to add another channel to your current recruitment activity.
+          </p>
+        </div>
+        <a class="text-link mt-9" href="/contact/">Ask whether it fits your vacancy <span aria-hidden="true">→</span></a>
+      </div>
+
+      <Picture
+        src={planningImage}
+        formats={["avif", "webp"]}
+        widths={[480, 640, 800, 1000]}
+        sizes="(max-width: 1023px) calc(100vw - 2rem), 38vw"
+        alt="A person making notes on a printed document"
+        quality={82}
+        class="aspect-[4/3] w-full rounded-[2rem] object-cover grayscale shadow-soft lg:aspect-[4/5]"
+      />
+    </div>
+  </section>
+
+  <section class="section-space bg-mist">
+    <div class="page-shell grid gap-12 lg:grid-cols-[0.72fr_1.28fr] lg:gap-24">
+      <div>
+        <p class="eyebrow text-charcoal-soft">Questions</p>
+        <h2 class="content-heading mt-6 max-w-[11ch]">What employers usually ask.</h2>
+      </div>
+
+      <div class="space-y-10">
+        {
+          faqs.map((item) => (
+            <article>
+              <h3 class="text-[clamp(1.55rem,2.6vw,2.35rem)] font-semibold leading-tight">{item.question}</h3>
+              <p class="mt-4 max-w-3xl text-lg leading-8 text-charcoal-soft">{item.answer}</p>
+            </article>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <CallToAction title="Looking for a different way to reach candidates?" text="Tell me about the role and who you are trying to reach." />
+  <section class="section-space">
+    <div class="page-shell text-center">
+      <p class="eyebrow text-charcoal-soft">Start with the vacancy</p>
+      <h2 class="mx-auto mt-6 max-w-[13ch] text-[clamp(2.8rem,6vw,6rem)] font-semibold leading-[0.94] tracking-[-0.04em]">
+        Not reaching the candidates you need?
+      </h2>
+      <p class="mx-auto mt-8 max-w-2xl text-[clamp(1.05rem,1.5vw,1.25rem)] leading-8 text-charcoal-soft">
+        Tell us about the role, where it is based and what has made it difficult to fill. We will tell you whether a social recruiting campaign is worth considering.
+      </p>
+      <a class="button-dark mt-10" href="/contact/">Tell us about the vacancy</a>
+    </div>
+  </section>
 </BaseLayout>
