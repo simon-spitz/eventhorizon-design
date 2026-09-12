@@ -64,6 +64,24 @@ const supporting = [
 
   <section class="section-space">
     <div class="page-shell">
+      <p class="eyebrow text-charcoal-soft">Other areas I can cover</p>
+      <h2 class="content-heading mt-6 max-w-[13ch]">Other parts of the project I can cover.</h2>
+      <div class="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          supporting.map(([title, text], index) => (
+            <article>
+              <p class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</p>
+              <h3 class="mt-4 text-2xl font-semibold">{title}</h3>
+              <p class="mt-4 leading-7 text-charcoal-soft">{text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="pb-12 sm:pb-16">
+    <div class="page-shell">
       <div class="grid gap-8 rounded-[2rem] bg-mist px-7 py-10 shadow-soft sm:px-10 sm:py-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:gap-20 lg:px-14 lg:py-16">
         <div>
           <p class="eyebrow text-charcoal-soft">A specialist service</p>
@@ -77,24 +95,6 @@ const supporting = [
           </p>
           <a class="text-link mt-7" href="/social-recruiting/">See how social recruiting works <span aria-hidden="true">→</span></a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-space pt-0">
-    <div class="page-shell">
-      <p class="eyebrow text-charcoal-soft">Other areas I can cover</p>
-      <h2 class="content-heading mt-6 max-w-[13ch]">Other parts of the project I can cover.</h2>
-      <div class="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-        {
-          supporting.map(([title, text], index) => (
-            <article>
-              <p class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</p>
-              <h3 class="mt-4 text-2xl font-semibold">{title}</h3>
-              <p class="mt-4 leading-7 text-charcoal-soft">{text}</p>
-            </article>
-          ))
-        }
       </div>
     </div>
   </section>
