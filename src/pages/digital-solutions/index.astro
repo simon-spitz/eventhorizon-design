@@ -32,7 +32,6 @@ const supporting = [
   ["SEO", "Improve page content, site structure and the technical details that help search engines understand the website."],
   ["AI and prompt support", "Use AI for research, analysis and repeatable tasks where it genuinely saves time."],
   ["Consultation", "Bring me a problem or decision and I will help you work through it."],
-  ["Social recruiting", "Reach potential candidates who are not actively searching job boards through focused social media campaigns."],
 ];
 ---
 
@@ -65,6 +64,25 @@ const supporting = [
 
   <section class="section-space">
     <div class="page-shell">
+      <div class="grid gap-8 rounded-[2rem] bg-mist px-7 py-10 shadow-soft sm:px-10 sm:py-12 lg:grid-cols-[0.72fr_1.28fr] lg:items-end lg:gap-20 lg:px-14 lg:py-16">
+        <div>
+          <p class="eyebrow text-charcoal-soft">A specialist service</p>
+          <h2 class="mt-5 max-w-[12ch] text-[clamp(2.5rem,4.5vw,4.75rem)] font-semibold leading-[0.98] tracking-[-0.035em]">
+            Reach the people job ads miss.
+          </h2>
+        </div>
+        <div>
+          <p class="max-w-2xl text-[clamp(1.1rem,1.5vw,1.3rem)] leading-8 text-charcoal-soft">
+            Social recruiting is a separate service I deliver with a business partner. We plan and run targeted social media campaigns designed to reach suitable people, including those who are not actively searching job boards.
+          </p>
+          <a class="text-link mt-7" href="/social-recruiting/">See how social recruiting works <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space pt-0">
+    <div class="page-shell">
       <p class="eyebrow text-charcoal-soft">Other areas I can cover</p>
       <h2 class="content-heading mt-6 max-w-[13ch]">Other parts of the project I can cover.</h2>
       <div class="mt-14 grid gap-x-14 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -74,9 +92,6 @@ const supporting = [
               <p class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</p>
               <h3 class="mt-4 text-2xl font-semibold">{title}</h3>
               <p class="mt-4 leading-7 text-charcoal-soft">{text}</p>
-              {title === "Social recruiting" && (
-                <a class="text-link mt-5" href="/social-recruiting/">Social recruiting support <span aria-hidden="true">→</span></a>
-              )}
             </article>
           ))
         }
