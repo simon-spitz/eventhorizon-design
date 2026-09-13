@@ -4,13 +4,15 @@
 
 Simon helps organisations define requirements, organise digital work and deliver website projects. Social recruiting is a specialist service delivered with a business partner.
 
+His technical background includes designing and coding websites, programming, databases, server-side technologies and current web development practices.
+
 ## Main pages
 
 - [Home](https://www.eventhorizon-design.com/): Overview of Simon Spitz and Event Horizon Design.
 - [What I do](https://www.eventhorizon-design.com/digital-solutions/): Business analysis, digital project management, website project management and supporting digital services.
 - [Social recruiting](https://www.eventhorizon-design.com/social-recruiting/): Focused social media recruitment campaigns for employers that want to reach potential candidates beyond traditional job boards.
 - [Selected work](https://www.eventhorizon-design.com/portfolio/): Website and digital project examples.
-- [About Simon Spitz](https://www.eventhorizon-design.com/about/): Professional background, experience and working approach.
+- [About Simon Spitz](https://www.eventhorizon-design.com/about/): Professional background in web development, programming and digital project delivery, with more than 20 years of experience.
 - [Contact](https://www.eventhorizon-design.com/contact/): Enquiry form for digital projects and social recruiting vacancies.
 
 ## Specialist social recruiting service
