@@ -2,8 +2,7 @@
 import { Image, Picture } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CallToAction from "../components/CallToAction.astro";
-import ProjectCard from "../components/ProjectCard.astro";
-import { projects } from "../data/projects";
+import { recentProjects } from "../data/projects";
 import heroImage from "../assets/images/home/hero.jpg";
 import simonPortrait from "../assets/images/home/simon-spitz.webp";
 
@@ -173,15 +172,32 @@ const homeStructuredData = {
         <div>
           <p class="eyebrow text-charcoal-soft">Selected website work</p>
           <h2 class="mt-5 text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[0.96] tracking-[-0.035em]">
-            A few recent websites.
+            Recent projects.
           </h2>
         </div>
-        <a class="text-link" href="/portfolio/">View all work <span aria-hidden="true">→</span></a>
+        <a class="text-link" href="/portfolio/">View selected work <span aria-hidden="true">→</span></a>
       </div>
 
-      <div class="mt-14 grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:mt-20">
-        {projects.slice(0, 4).map((project) => <ProjectCard project={project} />)}
-      </div>
+      <ol class="mt-14 lg:mt-20">
+        {
+          recentProjects.map((project, index) => (
+            <li class="group py-7 first:pt-0 last:pb-0 sm:py-9">
+              <a
+                href={`/portfolio/#${project.slug}`}
+                class="grid items-baseline gap-3 sm:grid-cols-[4rem_1fr_auto] sm:gap-8"
+              >
+                <span class="eyebrow text-charcoal-soft">{String(index + 1).padStart(2, "0")}</span>
+                <span class="font-display text-[clamp(2rem,4.5vw,4.5rem)] font-semibold leading-none tracking-[-0.03em] transition-opacity group-hover:opacity-55">
+                  {project.title}
+                </span>
+                <span class="mt-2 text-sm font-bold text-charcoal-soft sm:mt-0">
+                  {project.services.slice(0, 2).join(" · ")} <span aria-hidden="true" class="ml-2">→</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ol>
     </div>
   </section>
 

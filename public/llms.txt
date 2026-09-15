@@ -11,7 +11,7 @@ His technical background includes designing and coding websites, programming, da
 - [Home](https://www.eventhorizon-design.com/): Overview of Simon Spitz and Event Horizon Design.
 - [What I do](https://www.eventhorizon-design.com/digital-solutions/): Business analysis, digital project management, website project management and supporting digital services.
 - [Social recruiting](https://www.eventhorizon-design.com/social-recruiting/): Focused social media recruitment campaigns for employers that want to reach potential candidates beyond traditional job boards.
-- [Selected work](https://www.eventhorizon-design.com/portfolio/): Website and digital project examples.
+- [Selected work](https://www.eventhorizon-design.com/portfolio/): Website and digital project examples, including Cullerne House, MAC Hub and Cullerne Gardens.
 - [About Simon Spitz](https://www.eventhorizon-design.com/about/): Professional background in web development, programming and digital project delivery, with more than 20 years of experience.
 - [Contact](https://www.eventhorizon-design.com/contact/): Enquiry form for digital projects and social recruiting vacancies.
 
@@ -20,6 +20,14 @@ His technical background includes designing and coding websites, programming, da
 The service helps employers reach people who may suit a vacancy but are not actively searching job boards. Work can include understanding the vacancy, defining the audience, developing campaign messages and creative, setting up targeting, monitoring the campaign and reporting on the response.
 
 Social recruiting may be used alongside job boards or recruitment agencies. It is not suitable for every vacancy and does not guarantee a hire. Suitability depends on factors such as the role, location, available audience, budget, offer and recruitment process.
+
+## Selected website work
+
+Recent work includes business analysis, website project management, content structure and website delivery for Cullerne House, MAC Hub and Cullerne Gardens in Findhorn. This work included evaluating, selecting, implementing and configuring booking, shop and other supporting business systems, including LemonBooking and Ooooby. Earlier selected work includes Transition Expertise, THA Park Ecovillage Findhorn Ltd, REM Core Drilling, 102 Agency and Synchronicity.
+
+Across most projects, Simon is also responsible for digital marketing alongside business analysis, project management and website delivery.
+
+Simon works with the Cologne digital agency schwarzdesign as a Business Analyst and Project Manager across website and digital projects. His work there includes requirements analysis, coordinating delivery across disciplines and contributing to digital marketing.
 
 ## Legal information
 

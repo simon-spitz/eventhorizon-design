@@ -1,124 +1,132 @@
 import type { ImageMetadata } from "astro";
-import transitionCover from "../assets/images/home/transition-expertise.webp";
-import thaCover from "../assets/images/home/tha.webp";
-import agencyCover from "../assets/images/home/102-agency.webp";
-import remCover from "../assets/images/home/rem-core-drilling.webp";
-import synchronicityCover from "../assets/images/home/synchronicity.webp";
-import eventHorizonCover from "../assets/images/home/event-horizon.webp";
-import transitionDesktop from "../assets/images/projects/transition-expertise/desktop.webp";
-import transitionPhone1 from "../assets/images/projects/transition-expertise/phone-01.webp";
-import transitionPhone2 from "../assets/images/projects/transition-expertise/phone-02.webp";
-import transitionPhone3 from "../assets/images/projects/transition-expertise/phone-03.webp";
-import thaDesktop from "../assets/images/projects/tha/desktop.webp";
-import thaPhone1 from "../assets/images/projects/tha/phone-01.webp";
-import thaPhone2 from "../assets/images/projects/tha/phone-02.webp";
-import thaPhone3 from "../assets/images/projects/tha/phone-03.webp";
-import agencyDesktop from "../assets/images/projects/102-agency/desktop.webp";
-import agencyPhone1 from "../assets/images/projects/102-agency/phone-01.webp";
-import agencyPhone2 from "../assets/images/projects/102-agency/phone-02.webp";
-import agencyPhone3 from "../assets/images/projects/102-agency/phone-03.webp";
-import remDesktop from "../assets/images/projects/rem-core-drilling/desktop.webp";
-import remPhone1 from "../assets/images/projects/rem-core-drilling/phone-01.webp";
-import remPhone2 from "../assets/images/projects/rem-core-drilling/phone-02.webp";
-import remPhone3 from "../assets/images/projects/rem-core-drilling/phone-03.webp";
-import synchronicityDesktop from "../assets/images/projects/synchronicity/desktop.webp";
-import synchronicityPhone1 from "../assets/images/projects/synchronicity/phone-01.webp";
-import synchronicityPhone2 from "../assets/images/projects/synchronicity/phone-02.webp";
-import synchronicityPhone3 from "../assets/images/projects/synchronicity/phone-03.webp";
-import eventHorizonDesktop from "../assets/images/projects/event-horizon/desktop.webp";
-import eventHorizonPhone1 from "../assets/images/projects/event-horizon/phone-01.webp";
-import eventHorizonPhone2 from "../assets/images/projects/event-horizon/phone-02.webp";
-import eventHorizonPhone3 from "../assets/images/projects/event-horizon/phone-03.webp";
+import cullerneGardensImage from "../assets/images/projects/cullerne-gardens/feature.jpg";
+import macHubImage from "../assets/images/projects/mac-hub/feature.jpg";
+import cullerneHouseImage from "../assets/images/projects/cullerne-house/feature.jpg";
+import transitionImage from "../assets/images/projects/transition-expertise/desktop.webp";
+import thaImage from "../assets/images/projects/tha/desktop.webp";
+import remImage from "../assets/images/projects/rem-core-drilling/desktop.webp";
+import agencyImage from "../assets/images/projects/102-agency/desktop.webp";
+import synchronicityImage from "../assets/images/projects/synchronicity/desktop.webp";
 
 export interface Project {
   slug: string;
   title: string;
-  shortTitle: string;
   kind: string;
-  cms: string;
+  platform: string;
   url?: string;
   summary: string;
-  cover: ImageMetadata;
-  desktop: ImageMetadata;
-  phones: ImageMetadata[];
+  services: string[];
+  image: ImageMetadata;
   alt: string;
+  group: "recent" | "earlier";
+  imagePosition?: string;
 }
 
 export const projects: Project[] = [
   {
+    slug: "cullerne-house",
+    title: "Cullerne House",
+    kind: "Venue and accommodation website",
+    platform: "Squarespace",
+    url: "https://www.cullernehouse.org/",
+    summary:
+      "Business analysis and website delivery for a Findhorn venue with three distinct offers: room hire, B&B accommodation and public workshops. I clarified requirements, mapped the user journeys, and evaluated, selected and implemented the supporting booking and availability systems.",
+    services: ["Business analysis", "Website project management", "Digital marketing", "System selection and implementation", "UX and content structure"],
+    image: cullerneHouseImage,
+    alt: "Cullerne House seen through its garden in Findhorn",
+    group: "recent",
+    imagePosition: "center",
+  },
+  {
+    slug: "mac-hub",
+    title: "MAC Hub",
+    kind: "Creative venue website",
+    platform: "Squarespace",
+    url: "https://www.mac-hub.uk/",
+    summary:
+      "Business analysis and website delivery for a creative venue in Findhorn. I clarified how its spaces and booking process needed to work, then evaluated, selected, implemented and configured LemonBooking alongside the website.",
+    services: ["Business analysis", "Website project management", "Digital marketing", "System selection and implementation", "Content structure"],
+    image: macHubImage,
+    alt: "Exterior of MAC Hub at The Park in Findhorn",
+    group: "recent",
+    imagePosition: "center",
+  },
+  {
+    slug: "cullerne-gardens",
+    title: "Cullerne Gardens",
+    kind: "Community food project",
+    platform: "Squarespace",
+    url: "https://www.cullernegardens.uk/",
+    summary:
+      "Business analysis and website delivery for a community-supported agriculture project. I worked through how veg-box subscriptions, the online shop and support routes needed to connect, then evaluated, selected and implemented Ooooby as part of the customer journey.",
+    services: ["Business analysis", "Website project management", "Digital marketing", "System selection and implementation", "UX and content structure"],
+    image: cullerneGardensImage,
+    alt: "Cullerne Gardens growing area and polytunnels in Findhorn",
+    group: "recent",
+    imagePosition: "center",
+  },
+  {
     slug: "transition-expertise",
     title: "Transition Expertise",
-    shortTitle: "Transition Expertise",
     kind: "Business website",
-    cms: "Squarespace",
+    platform: "Squarespace",
     url: "https://www.transitionexpertise.com/",
-    summary: "A Squarespace business website for Transition Expertise, designed for desktop and mobile.",
-    cover: transitionCover,
-    desktop: transitionDesktop,
-    phones: [transitionPhone1, transitionPhone2, transitionPhone3],
-    alt: "Transition Expertise website shown on desktop and mobile screens",
+    summary:
+      "Business analysis, content structure and website delivery for Transition Expertise, translated into a clear and responsive business website.",
+    services: ["Business analysis", "Digital marketing", "Content structure", "Website delivery"],
+    image: transitionImage,
+    alt: "Transition Expertise website homepage",
+    group: "earlier",
   },
   {
     slug: "tha-park-ecovillage",
     title: "THA Park Ecovillage Findhorn Ltd",
-    shortTitle: "THA Ltd",
     kind: "Organisation website",
-    cms: "Squarespace",
+    platform: "Squarespace",
     url: "https://www.tha-ltd.org/",
-    summary: "A Squarespace website for THA Park Ecovillage Findhorn Ltd, designed for desktop and mobile.",
-    cover: thaCover,
-    desktop: thaDesktop,
-    phones: [thaPhone1, thaPhone2, thaPhone3],
-    alt: "THA Park Ecovillage Findhorn website shown on desktop and mobile screens",
-  },
-  {
-    slug: "102-agency",
-    title: "102 Agency corporate website",
-    shortTitle: "102 Agency",
-    kind: "Corporate website",
-    cms: "Odoo",
-    summary: "A corporate website for 102 Agency, built in Odoo for desktop and mobile.",
-    cover: agencyCover,
-    desktop: agencyDesktop,
-    phones: [agencyPhone1, agencyPhone2, agencyPhone3],
-    alt: "102 Agency website shown on desktop and mobile screens",
+    summary:
+      "Business analysis and website delivery for THA Park Ecovillage Findhorn Ltd, organising complex company and community information into a structure people can use.",
+    services: ["Business analysis", "Digital marketing", "Content structure", "Website delivery"],
+    image: thaImage,
+    alt: "THA Park Ecovillage Findhorn website homepage",
+    group: "earlier",
   },
   {
     slug: "rem-core-drilling",
-    title: "REM Core Drilling business website",
-    shortTitle: "REM Core Drilling",
+    title: "REM Core Drilling",
     kind: "Business website",
-    cms: "Squarespace",
+    platform: "Squarespace",
     url: "https://www.rem-dv.co.uk/",
-    summary: "A Squarespace business website for REM Core Drilling, designed for desktop and mobile.",
-    cover: remCover,
-    desktop: remDesktop,
-    phones: [remPhone1, remPhone2, remPhone3],
-    alt: "REM Core Drilling website shown on desktop and mobile screens",
+    summary:
+      "A straightforward and responsive business website designed and delivered for REM Core Drilling.",
+    services: ["Website design", "Responsive delivery"],
+    image: remImage,
+    alt: "REM Core Drilling website homepage",
+    group: "earlier",
+  },
+  {
+    slug: "102-agency",
+    title: "102 Agency",
+    kind: "Corporate website",
+    platform: "Odoo",
+    summary: "Business analysis and responsive website delivery for a specialist agency.",
+    services: ["Business analysis", "Digital marketing", "Website delivery"],
+    image: agencyImage,
+    alt: "102 Agency website homepage",
+    group: "earlier",
   },
   {
     slug: "synchronicity",
-    title: "Synchronicity corporate website",
-    shortTitle: "Synchronicity",
+    title: "Synchronicity",
     kind: "Corporate website",
-    cms: "Odoo",
-    summary: "A corporate website for Synchronicity, built in Odoo for desktop and mobile.",
-    cover: synchronicityCover,
-    desktop: synchronicityDesktop,
-    phones: [synchronicityPhone1, synchronicityPhone2, synchronicityPhone3],
-    alt: "Synchronicity website shown on desktop and mobile screens",
-  },
-  {
-    slug: "event-horizon-design",
-    title: "Event Horizon Design website",
-    shortTitle: "Event Horizon Design",
-    kind: "Portfolio website",
-    cms: "Squarespace",
-    url: "https://www.eventhorizon-design.com/",
-    summary: "The previous Event Horizon Design portfolio website, built in Squarespace for desktop and mobile.",
-    cover: eventHorizonCover,
-    desktop: eventHorizonDesktop,
-    phones: [eventHorizonPhone1, eventHorizonPhone2, eventHorizonPhone3],
-    alt: "Event Horizon Design website shown on desktop and mobile screens",
+    platform: "Odoo",
+    summary: "Business analysis and responsive corporate website delivery.",
+    services: ["Business analysis", "Digital marketing", "Website delivery"],
+    image: synchronicityImage,
+    alt: "Synchronicity website homepage",
+    group: "earlier",
   },
 ];
+
+export const recentProjects = projects.filter((project) => project.group === "recent");
+export const earlierProjects = projects.filter((project) => project.group === "earlier");

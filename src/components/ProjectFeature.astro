@@ -1,0 +1,63 @@
+---
+import { Picture } from "astro:assets";
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  number: number;
+  reverse?: boolean;
+  compact?: boolean;
+}
+
+const { project, number, reverse = false, compact = false } = Astro.props;
+const numberLabel = String(number).padStart(2, "0");
+---
+
+<article id={project.slug} class="scroll-mt-32">
+  <div
+    class:list={[
+      "grid items-center gap-9 lg:grid-cols-2 lg:gap-16 xl:gap-24",
+      reverse && "lg:[&_.project-image]:order-2",
+    ]}
+  >
+    <div class="project-image overflow-hidden rounded-[1.35rem] bg-white shadow-soft">
+      <Picture
+        src={project.image}
+        formats={["avif", "webp"]}
+        widths={compact ? [480, 720, 960] : [480, 720, 960, 1280]}
+        sizes="(max-width: 1023px) calc(100vw - 2rem), 46vw"
+        alt={project.alt}
+        quality={84}
+        class="aspect-[16/11] w-full object-cover transition duration-500 hover:scale-[1.015]"
+        style={`object-position: ${project.imagePosition ?? "top center"}`}
+      />
+    </div>
+
+    <div class="max-w-[38rem]">
+      <div class="flex items-center gap-5 text-charcoal-soft">
+        <p class="eyebrow">{numberLabel}</p>
+        <span aria-hidden="true" class="h-px w-10 bg-charcoal/20"></span>
+        <p class="eyebrow">{project.kind}</p>
+      </div>
+
+      <h2 class="mt-6 text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[0.92] tracking-[-0.035em]">
+        {project.title}
+      </h2>
+      <p class="mt-7 text-[clamp(1.06rem,1.5vw,1.25rem)] leading-8 text-charcoal-soft">
+        {project.summary}
+      </p>
+
+      <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-charcoal-soft" aria-label="Work included">
+        {project.services.map((service) => <li>{service}</li>)}
+      </ul>
+
+      {
+        project.url && (
+          <a class="text-link mt-8" href={project.url} rel="external noopener">
+            Visit website <span aria-hidden="true">↗</span>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

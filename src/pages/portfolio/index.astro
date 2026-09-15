@@ -1,24 +1,130 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PageIntro from "../../components/PageIntro.astro";
-import ProjectCard from "../../components/ProjectCard.astro";
+import ProjectFeature from "../../components/ProjectFeature.astro";
+import ProjectIndexRow from "../../components/ProjectIndexRow.astro";
 import CallToAction from "../../components/CallToAction.astro";
-import { projects } from "../../data/projects";
+import { projects, recentProjects, earlierProjects } from "../../data/projects";
+
+const site = Astro.site ?? new URL("https://www.eventhorizon-design.com");
+const pageUrl = new URL(Astro.url.pathname, site).href;
+const workStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: "Selected website and digital work by Simon Spitz",
+      description:
+        "Selected business analysis, project management, digital marketing and website work by Simon Spitz, including an ongoing collaboration with schwarzdesign.",
+      inLanguage: "en-GB",
+      isPartOf: { "@id": "https://www.eventhorizon-design.com/#website" },
+      mainEntity: { "@id": `${pageUrl}#projects` },
+    },
+    {
+      "@type": "ItemList",
+      "@id": `${pageUrl}#projects`,
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "CreativeWork",
+          name: project.title,
+          description: project.summary,
+          image: new URL(project.image.src, site).href,
+          creator: { "@id": "https://www.eventhorizon-design.com/#simon-spitz" },
+          ...(project.url ? { url: project.url } : {}),
+        },
+      })),
+    },
+  ],
+};
 ---
 
 <BaseLayout
-  title="Website Project Portfolio | Simon Spitz"
-  description="Selected website projects by Simon Spitz, showing responsive work for businesses and organisations delivered with Squarespace and Odoo."
+  title="Business Analysis, Project Management & Website Work | Simon Spitz"
+  description="Selected business analysis, project management, digital marketing and website work by Simon Spitz, including an ongoing collaboration with schwarzdesign."
+  structuredData={workStructuredData}
 >
   <PageIntro
     eyebrow="Selected work"
-    title="Selected website projects."
-    intro="Here are some of the website projects I have worked on for businesses and organisations. They include Squarespace and Odoo websites designed for desktop and mobile."
+    title="Websites, projects and ongoing collaborations."
+    intro="A selection of website and digital projects I have analysed, planned, managed or delivered. My role varies from project to project and has usually included responsibility for digital marketing as well as the website itself."
   />
 
-  <section class="section-space bg-mist">
-    <div class="page-shell grid gap-x-10 gap-y-16 sm:grid-cols-2">
-      {projects.map((project) => <ProjectCard project={project} />)}
+  <section class="section-space bg-mist" aria-labelledby="recent-work-heading">
+    <div class="page-shell">
+      <div class="mb-14 grid gap-5 lg:mb-24 lg:grid-cols-[0.55fr_1.45fr] lg:items-end">
+        <p class="eyebrow text-charcoal-soft">Recent work</p>
+        <h2 id="recent-work-heading" class="max-w-[13ch] text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
+          Three recent website projects.
+        </h2>
+      </div>
+
+      <div class="space-y-24 sm:space-y-32 lg:space-y-40">
+        {
+          recentProjects.map((project, index) => (
+            <ProjectFeature project={project} number={index + 1} reverse={index % 2 === 1} />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" aria-labelledby="schwarzdesign-heading">
+    <div class="page-shell">
+      <div class="overflow-hidden rounded-[2rem] bg-charcoal px-7 py-10 text-white shadow-lifted sm:px-12 sm:py-14 lg:px-16 lg:py-20">
+        <div class="grid gap-10 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
+          <div>
+            <p class="eyebrow text-white/65">Ongoing agency collaboration</p>
+            <h2 id="schwarzdesign-heading" class="mt-5 text-[clamp(2.8rem,5vw,5.5rem)] font-semibold leading-[0.94] tracking-[-0.035em]">
+              schwarzdesign.
+            </h2>
+            <p class="mt-4 text-sm font-bold text-white/65">Cologne, Germany</p>
+          </div>
+
+          <div class="max-w-[45rem] lg:pt-2">
+            <p class="text-[clamp(1.15rem,1.8vw,1.45rem)] leading-[1.7] text-white/85">
+              I work with schwarzdesign as a Business Analyst and Project Manager across website and digital projects. My work starts with understanding the client’s organisation and defining the requirements. I then coordinate delivery across strategy, content, design and development, and contribute to the digital marketing around the finished work.
+            </p>
+            <ul class="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-white/65" aria-label="Roles at schwarzdesign">
+              <li>Business Analyst</li>
+              <li>Project Manager</li>
+              <li>Digital marketing</li>
+            </ul>
+            <a
+              class="mt-8 inline-flex items-center gap-2 font-bold text-white underline decoration-white/45 underline-offset-[0.4em] transition-opacity hover:opacity-65"
+              href="https://www.schwarzdesign.de/internetagentur/team/"
+              rel="external noopener"
+            >
+              Meet the schwarzdesign team <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" aria-labelledby="earlier-work-heading">
+    <div class="page-shell">
+      <div class="mb-14 grid gap-5 lg:mb-24 lg:grid-cols-[0.55fr_1.45fr] lg:items-end">
+        <p class="eyebrow text-charcoal-soft">Earlier work</p>
+        <h2 id="earlier-work-heading" class="max-w-[14ch] text-[clamp(2.5rem,5vw,5rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
+          Earlier selected websites.
+        </h2>
+      </div>
+
+      <div>
+        {
+          earlierProjects.map((project, index) => (
+            <ProjectIndexRow
+              project={project}
+              number={recentProjects.length + index + 1}
+            />
+          ))
+        }
+      </div>
     </div>
   </section>
 

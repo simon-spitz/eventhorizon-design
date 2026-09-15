@@ -35,6 +35,42 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/portfolio/transition-expertise/"
+  to = "/portfolio/#transition-expertise"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/tha-park-ecovillage/"
+  to = "/portfolio/#tha-park-ecovillage"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/rem-core-drilling/"
+  to = "/portfolio/#rem-core-drilling"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/102-agency/"
+  to = "/portfolio/#102-agency"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/synchronicity/"
+  to = "/portfolio/#synchronicity"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/event-horizon-design/"
+  to = "/portfolio/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/_astro/*"
   [headers.values]

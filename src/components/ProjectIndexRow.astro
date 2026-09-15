@@ -1,0 +1,38 @@
+---
+import type { Project } from "../data/projects";
+
+interface Props {
+  project: Project;
+  number: number;
+}
+
+const { project, number } = Astro.props;
+const numberLabel = String(number).padStart(2, "0");
+---
+
+<article id={project.slug} class="scroll-mt-32 py-10 first:pt-0 last:pb-0 sm:py-14 lg:py-16">
+  <div class="grid gap-6 lg:grid-cols-[5rem_minmax(0,0.9fr)_minmax(20rem,1.1fr)] lg:gap-12">
+    <p class="eyebrow text-charcoal-soft">{numberLabel}</p>
+
+    <div>
+      <p class="eyebrow text-charcoal-soft">{project.kind}</p>
+      <h3 class="mt-4 max-w-[18ch] text-[clamp(2rem,3.8vw,4rem)] font-semibold leading-[0.96] tracking-[-0.03em]">
+        {project.title}
+      </h3>
+    </div>
+
+    <div class="max-w-[38rem] lg:pt-7">
+      <p class="text-[clamp(1.04rem,1.35vw,1.18rem)] leading-8 text-charcoal-soft">{project.summary}</p>
+      <ul class="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm font-bold text-charcoal-soft" aria-label="Work included">
+        {project.services.map((service) => <li>{service}</li>)}
+      </ul>
+      {
+        project.url && (
+          <a class="text-link mt-6" href={project.url} rel="external noopener">
+            Visit website <span aria-hidden="true">↗</span>
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>
