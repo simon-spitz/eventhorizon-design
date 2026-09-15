@@ -4,7 +4,6 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CallToAction from "../components/CallToAction.astro";
 import { recentProjects } from "../data/projects";
 import heroImage from "../assets/images/home/hero.jpg";
-import simonPortrait from "../assets/images/home/simon-spitz.webp";
 
 const capabilities = [
   {
@@ -112,28 +111,19 @@ const homeStructuredData = {
   </section>
 
   <section class="section-space bg-mist">
-    <div class="page-shell grid items-center gap-12 md:grid-cols-[0.72fr_1.28fr] md:gap-16 lg:gap-24">
-      <div class="mx-auto w-full max-w-sm">
-        <Image
-          src={simonPortrait}
-          alt="Simon Spitz"
-          widths={[320, 500, 750]}
-          sizes="(max-width: 767px) min(78vw, 24rem), 30vw"
-          layout="constrained"
-          quality={86}
-          class="aspect-square w-full rounded-full object-cover shadow-soft"
-        />
-      </div>
-
-      <div class="max-w-3xl">
+    <div class="page-shell">
+      <div class="mx-auto max-w-6xl py-3 sm:py-8">
         <p class="eyebrow text-charcoal-soft">Why I work this way</p>
-        <blockquote class="mt-7 font-display text-[clamp(2rem,4vw,4.25rem)] font-semibold leading-[1.08] tracking-[-0.025em]">
+        <blockquote class="mt-8 max-w-[20ch] font-display text-[clamp(2.6rem,5.7vw,6.2rem)] font-semibold leading-[0.98] tracking-[-0.035em]">
           “I ask questions, get the right people talking and keep the work moving.”
         </blockquote>
-        <p class="mt-8 max-w-2xl text-[clamp(1.05rem,1.5vw,1.25rem)] leading-8 text-charcoal-soft">
-          I have worked in web development, project management, digital marketing and SEO for more than 20 years. I understand the technical detail without losing sight of what the project is meant to achieve.
-        </p>
-        <a class="text-link mt-9" href="/about/">More about me <span aria-hidden="true">→</span></a>
+
+        <div class="mt-12 grid gap-8 md:ml-auto md:max-w-3xl md:grid-cols-[1fr_auto] md:items-end md:gap-16 lg:mt-16">
+          <p class="text-[clamp(1.05rem,1.5vw,1.25rem)] leading-8 text-charcoal-soft">
+            I have worked in web development, project management, digital marketing and SEO for more than 20 years. I understand the technical detail without losing sight of what the project is meant to achieve.
+          </p>
+          <a class="text-link md:mb-1 md:whitespace-nowrap" href="/about/">More about me <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
   </section>
