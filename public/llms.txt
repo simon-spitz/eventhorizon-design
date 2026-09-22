@@ -6,13 +6,15 @@ Simon helps organisations define requirements, organise digital work and deliver
 
 His technical background includes designing and coding websites, programming, databases, server-side technologies and current web development practices.
 
+Simon uses AI tools including ChatGPT and Claude for research, analysis, content planning and repeatable workflows. He designs and tests prompts, checks sources and outputs, and keeps responsibility for the decisions. His SEO work also covers AI search visibility and practical generative engine optimisation (GEO).
+
 ## Main pages
 
 - [Home](https://www.eventhorizon-design.com/): Overview of Simon Spitz and Event Horizon Design.
-- [What I do](https://www.eventhorizon-design.com/digital-solutions/): Business analysis, digital project management, website project management and supporting digital services.
+- [What I do](https://www.eventhorizon-design.com/digital-solutions/): Business analysis, digital project management, website project management, AI and prompt engineering, SEO and AI search visibility.
 - [Social recruiting](https://www.eventhorizon-design.com/social-recruiting/): Focused social media recruitment campaigns for employers that want to reach potential candidates beyond traditional job boards.
 - [Selected work](https://www.eventhorizon-design.com/portfolio/): Website and digital project examples, including Cullerne House, MAC Hub and Cullerne Gardens.
-- [About Simon Spitz](https://www.eventhorizon-design.com/about/): Professional background in web development, programming and digital project delivery, with more than 20 years of experience.
+- [About Simon Spitz](https://www.eventhorizon-design.com/about/): Professional background in web development, programming and digital project delivery, with more than 20 years of experience and a practical approach to AI.
 - [Contact](https://www.eventhorizon-design.com/contact/): Enquiry form for digital projects and social recruiting vacancies.
 
 ## Specialist social recruiting service
