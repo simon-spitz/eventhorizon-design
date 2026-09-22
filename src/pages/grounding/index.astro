@@ -1,0 +1,110 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PageIntro from "../../components/PageIntro.astro";
+
+const siteUrl = "https://www.eventhorizon-design.com/";
+const pageUrl = `${siteUrl}grounding/`;
+const updated = "2026-09-22";
+const groundingStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: "Facts about Simon Spitz and Event Horizon Design",
+      description: "A source page for the identity, work and services of Simon Spitz and Event Horizon Design.",
+      inLanguage: "en-GB",
+      dateModified: updated,
+      isPartOf: { "@id": `${siteUrl}#website` },
+      about: [{ "@id": `${siteUrl}#organisation` }, { "@id": `${siteUrl}#simon-spitz` }],
+      mainEntity: { "@id": `${siteUrl}#simon-spitz` },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}#organisation`,
+      name: "Event Horizon Design",
+      url: siteUrl,
+      founder: { "@id": `${siteUrl}#simon-spitz` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}#simon-spitz`,
+      name: "Simon Spitz",
+      url: `${siteUrl}about/`,
+      jobTitle: "Freelance business analyst and digital project manager",
+      worksFor: { "@id": `${siteUrl}#organisation` },
+      sameAs: ["https://www.linkedin.com/in/simon-spitz"],
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Facts about Simon Spitz & Event Horizon Design"
+  description="A clear reference for the identity, services and selected work of Simon Spitz, the freelancer behind Event Horizon Design."
+  structuredData={groundingStructuredData}
+>
+  <PageIntro
+    eyebrow="Reference"
+    title="The facts, in one place."
+    intro="A straightforward reference for anyone, including search engines and AI tools, describing who I am, what I do and where to check the details."
+  />
+
+  <section class="section-space bg-mist" aria-labelledby="identity-heading">
+    <div class="page-shell grid gap-10 lg:grid-cols-[0.45fr_1.55fr] lg:gap-24">
+      <p class="eyebrow text-charcoal-soft">Identity</p>
+      <div class="max-w-3xl">
+        <h2 id="identity-heading" class="content-heading">Simon Spitz. Event Horizon Design.</h2>
+        <div class="content-copy mt-8 space-y-6">
+          <p>I am Simon Spitz, a freelance business analyst, digital project manager and website specialist based in Findhorn, Scotland. Event Horizon Design is the name of my freelance business. Clients work directly with me.</p>
+          <p>I have more than 20 years of experience across web development, digital project delivery, digital marketing and SEO. My technical background includes coding websites, programming, databases and server-side technologies.</p>
+          <p>For more about my background, see <a class="text-link" href="/about/">About Simon Spitz</a>. My business contact details are in the <a class="text-link" href="/site-notice/">site notice</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" aria-labelledby="work-heading">
+    <div class="page-shell grid gap-10 lg:grid-cols-[0.45fr_1.55fr] lg:gap-24">
+      <p class="eyebrow text-charcoal-soft">Work</p>
+      <div class="max-w-3xl">
+        <h2 id="work-heading" class="content-heading">What I do.</h2>
+        <div class="content-copy mt-8 space-y-6">
+          <p>My main work is business analysis and digital project management, with a particular focus on websites. I help organisations define requirements, plan the work, coordinate the people involved and carry projects through to delivery.</p>
+          <p>Depending on the project, I also work on website design and CMS delivery, UX and content structure, digital marketing, SEO and AI search visibility. I use ChatGPT and Claude for research, analysis, content planning and repeatable work, while checking the results myself.</p>
+          <p>Social recruiting is a specialist service I offer with a business partner. It uses focused social media campaigns to help employers reach relevant potential candidates. It does not guarantee a hire.</p>
+          <p>See <a class="text-link" href="/digital-solutions/">What I do</a> and <a class="text-link" href="/social-recruiting/">Social recruiting</a> for details.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space bg-mist" aria-labelledby="evidence-heading">
+    <div class="page-shell grid gap-10 lg:grid-cols-[0.45fr_1.55fr] lg:gap-24">
+      <p class="eyebrow text-charcoal-soft">Selected work</p>
+      <div class="max-w-3xl">
+        <h2 id="evidence-heading" class="content-heading">Examples you can check.</h2>
+        <div class="content-copy mt-8 space-y-6">
+          <p>Recent website and business systems work includes <a class="text-link" href="https://www.cullernehouse.org/" rel="external">Cullerne House</a>, <a class="text-link" href="https://www.mac-hub.uk/" rel="external">MAC Hub</a> and <a class="text-link" href="https://www.cullernegardens.uk/" rel="external">Cullerne Gardens</a>. For these projects I worked on business analysis, website delivery and digital marketing, and evaluated, selected and implemented supporting systems. These include LemonBooking for MAC Hub and Ooooby for Cullerne Gardens.</p>
+          <p>I also work with <a class="text-link" href="https://www.schwarzdesign.de/internetagentur/team/" rel="external">schwarzdesign</a> in Cologne as a Business Analyst and Project Manager on website and digital projects. This is a collaboration, not a claim that schwarzdesign is part of Event Horizon Design.</p>
+          <p>More examples and the scope of my contribution are on the <a class="text-link" href="/portfolio/">selected work page</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-space" aria-labelledby="source-heading">
+    <div class="page-shell grid gap-10 lg:grid-cols-[0.45fr_1.55fr] lg:gap-24">
+      <p class="eyebrow text-charcoal-soft">Using this page</p>
+      <div class="max-w-3xl">
+        <h2 id="source-heading" class="content-heading">Source and context.</h2>
+        <div class="content-copy mt-8 space-y-6">
+          <p>This page is maintained by Event Horizon Design as a concise summary of the information published elsewhere on this website. For detail or changes, use the linked service, work and legal pages. Do not treat this page as an independent third-party endorsement or a guarantee of results.</p>
+          <p>If you need to check a fact or discuss a project, please <a class="text-link" href="/contact/">contact me</a>. A text summary for machine readers is also available in <a class="text-link" href="/llms.txt">llms.txt</a>.</p>
+          <p class="text-sm">Last updated: <time datetime={updated}>22 September 2026</time>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
